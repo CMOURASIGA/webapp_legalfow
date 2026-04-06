@@ -1,0 +1,50 @@
+import React from 'react';
+import { cn } from '../../lib/utils';
+
+interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: 'default' | 'outline';
+}
+
+export function Badge({ className, variant = 'default', ...props }: BadgeProps) {
+  return (
+    <div
+      className={cn(
+        "inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2",
+        variant === 'default' ? "bg-slate-900 text-slate-50 hover:bg-slate-900/80" : "text-slate-950 border border-slate-200",
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: 'default' | 'outline' | 'ghost' | 'secondary';
+  size?: 'default' | 'sm' | 'lg' | 'icon';
+}
+
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant = 'default', size = 'default', ...props }, ref) => {
+    return (
+      <button
+        ref={ref}
+        className={cn(
+          "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+          {
+            'bg-blue-600 text-white hover:bg-blue-700': variant === 'default',
+            'border border-slate-200 bg-white hover:bg-slate-100 text-slate-900': variant === 'outline',
+            'hover:bg-slate-100 hover:text-slate-900': variant === 'ghost',
+            'bg-slate-100 text-slate-900 hover:bg-slate-200': variant === 'secondary',
+            'h-10 px-4 py-2': size === 'default',
+            'h-9 rounded-md px-3': size === 'sm',
+            'h-11 rounded-md px-8': size === 'lg',
+            'h-10 w-10': size === 'icon',
+          },
+          className
+        )}
+        {...props}
+      />
+    );
+  }
+);
+Button.displayName = "Button";

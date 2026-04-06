@@ -1,0 +1,61 @@
+import { Demand } from '../types';
+
+export const initialDemands: Demand[] = [
+  {
+    id: 'DEM-001',
+    title: 'Análise de Contrato de Prestação de Serviços - TechCorp',
+    description: 'Solicito a revisão das cláusulas de rescisão e multas do contrato anexo com a TechCorp, visando proteger a empresa contra quebras unilaterais.',
+    requester: 'João Silva (Comercial)',
+    status: 'validacao',
+    priority: 'Alta',
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 2).toISOString(),
+    updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 2).toISOString(),
+    classification: 'Revisão Contratual - Risco Alto',
+    assignedAgents: ['Agente de Triagem', 'Agente de Pesquisa', 'Agente de Consolidação'],
+    foundations: [
+      'Art. 473 do Código Civil (Resilição unilateral)',
+      'Jurisprudência do STJ sobre multas compensatórias abusivas (Súmula 381)',
+      'Precedente interno: Caso MegaSoft (2023)'
+    ],
+    draftResponse: 'Prezado João,\n\nAnalisamos o contrato da TechCorp. Recomendamos a alteração da Cláusula 8.2 para incluir um aviso prévio de 60 dias em caso de rescisão unilateral, bem como a limitação da multa rescisória a 10% do valor do contrato, conforme jurisprudência pacificada do STJ.\n\nSegue a minuta com as marcações sugeridas.',
+  },
+  {
+    id: 'DEM-002',
+    title: 'Dúvida Trabalhista - Trabalho Remoto e Horas Extras',
+    description: 'Gostaria de saber se nossos funcionários em regime 100% remoto têm direito a horas extras caso respondam e-mails após as 18h.',
+    requester: 'Maria Souza (RH)',
+    status: 'pesquisa',
+    priority: 'Média',
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 5).toISOString(),
+    updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 1).toISOString(),
+    classification: 'Consultoria Trabalhista',
+    assignedAgents: ['Agente de Triagem', 'Agente de Pesquisa'],
+  },
+  {
+    id: 'DEM-003',
+    title: 'Notificação Extrajudicial - Uso indevido de marca',
+    description: 'Recebemos uma notificação da empresa XYZ alegando que nosso novo produto infringe a marca registrada deles. Precisamos de um parecer urgente.',
+    requester: 'Carlos Mendes (Marketing)',
+    status: 'recebimento',
+    priority: 'Alta',
+    createdAt: new Date(Date.now() - 1000 * 60 * 30).toISOString(),
+    updatedAt: new Date(Date.now() - 1000 * 60 * 30).toISOString(),
+  },
+  {
+    id: 'DEM-004',
+    title: 'Adequação à LGPD - Novo formulário de leads',
+    description: 'Por favor, validem o texto de consentimento para o novo formulário de captação de leads no site.',
+    requester: 'Ana Costa (Produto)',
+    status: 'entrega',
+    priority: 'Baixa',
+    createdAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 5).toISOString(),
+    updatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 1).toISOString(),
+    classification: 'Consultoria Regulatória (LGPD)',
+    assignedAgents: ['Agente de Triagem', 'Agente de Pesquisa', 'Agente de Consolidação'],
+    foundations: ['Art. 7º, I, da Lei 13.709/2018 (LGPD)'],
+    draftResponse: 'O texto sugerido atende aos requisitos da LGPD, desde que o checkbox não venha pré-marcado.',
+    finalResponse: 'O texto sugerido atende aos requisitos da LGPD. Ressaltamos apenas que, por determinação legal, o checkbox de consentimento não pode vir pré-marcado. Aprovado com esta ressalva.',
+    validatedBy: 'Dr. Roberto Alves',
+    validatedAt: new Date(Date.now() - 1000 * 60 * 60 * 24 * 1).toISOString(),
+  }
+];
